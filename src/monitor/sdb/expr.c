@@ -24,7 +24,12 @@ enum {
   TK_NOTYPE = 256, TK_EQ,
 
   /* TODO: Add more token types */
-
+  TK_NUM,  //number
+  TK_PLUS, //plus
+  TK_MUL,
+  TK_DIV,
+  TK_LPAREN,
+  TK_RPAREN,// right parenthesis
 };
 
 static struct rule {
@@ -39,6 +44,13 @@ static struct rule {
   {" +", TK_NOTYPE},    // spaces
   {"\\+", '+'},         // plus
   {"==", TK_EQ},        // equal
+  {"-", TK_MINUS},      // minus
+  {"\\*", TK_MUL},      //multiply
+  {"/", TK_DIV},        //divide
+  {"\\", TK_LPAREN}
+  {"\\)", TK_RPAREN},   // right parenthesis
+  {"[0-9]+", TK_NUM},   // number
+  {"==", TK_EQ}         // equal
 };
 
 #define NR_REGEX ARRLEN(rules)
